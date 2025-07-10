@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/job-platform-frontend-7-7-2025-2/static/css/main.a75f8e46.css",
+    "main.js": "/job-platform-frontend-7-7-2025-2/static/js/main.2087d551.js",
+    "index.html": "/job-platform-frontend-7-7-2025-2/index.html",
+    "main.a75f8e46.css.map": "/job-platform-frontend-7-7-2025-2/static/css/main.a75f8e46.css.map",
+    "main.2087d551.js.map": "/job-platform-frontend-7-7-2025-2/static/js/main.2087d551.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a75f8e46.css",
+    "static/js/main.2087d551.js"
+  ]
+}
