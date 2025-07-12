@@ -11,7 +11,7 @@ const Jobs = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost/jobs-platform-backen-7-7-2025/public/jobs")
+      .get("./api.json")
       .then((res) => {
         setJobs(res.data);
       })
