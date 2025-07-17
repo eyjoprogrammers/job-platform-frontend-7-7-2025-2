@@ -12,7 +12,7 @@ const Jobs = () => {
   const jobsPerPage = 5;
 
   useEffect(() => {
-    axios.get("/api.json")
+    axios.get(process.env.PUBLIC_URL + "/api.json")
       .then((res) => {
         setJobs(res.data);
       })
