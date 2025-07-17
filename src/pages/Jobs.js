@@ -9,7 +9,7 @@ const Jobs = () => {
   const jobsPerPage = 5;
 
   useEffect(() => {
-    fetch(process.env.PUBLIC_URL + "/data/api.json")
+    fetch("/data/api.json")
       .then((response) => {
         if (!response.ok) throw new Error("خطأ في تحميل البيانات");
         return response.json();
