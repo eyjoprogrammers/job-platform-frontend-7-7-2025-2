@@ -6,7 +6,7 @@ const Jobs = () => {
   const [filterLocation, setFilterLocation] = useState("");
   const [filterType, setFilterType] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const jobsPerPage = 5;
+  const jobsPerPage = 4;
 
   useEffect(() => {
     fetch(process.env.PUBLIC_URL + "/data/api.json")

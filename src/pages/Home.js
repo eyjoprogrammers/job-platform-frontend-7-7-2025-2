@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Home = () => {
   const [jobs, setJobs] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const jobsPerPage = 6;
+  const jobsPerPage =4;
 
   useEffect(() => {
     fetch(process.env.PUBLIC_URL + "/data/api.json")
