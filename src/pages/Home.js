@@ -8,7 +8,7 @@ const Home = () => {
   // ✅ جلب الوظائف من API وترتيبها حسب ID تنازليًا (الأحدث أولاً)
   useEffect(() => {
     // استخدام مسار نسبي للوصول إلى api.json داخل public
-    axios.get(process.env.PUBLIC_URL + "/api.json")
+    axios.get("/api.json")
       .then((res) => {
         setJobs(res.data);
       })
