@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Home = () => {
   const [jobs, setJobs] = useState([]);
@@ -8,7 +9,7 @@ const Home = () => {
   // ✅ جلب الوظائف من API وترتيبها حسب ID تنازليًا (الأحدث أولاً)
   useEffect(() => {
     axios
-      .get("http://localhost/jobs-platform-backen-7-7-2025/public/jobs")
+      .get("/api.json")
       .then((res) => {
         // ترتيب الوظائف حسب id تنازليًا ثم أخذ أول 5 فقط
         const sortedJobs = res.data
