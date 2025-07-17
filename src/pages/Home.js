@@ -1,37 +1,32 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
 
 const Home = () => {
   const [jobs, setJobs] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const jobsPerPage = 6; // عدد الوظائف في كل صفحة
+  const jobsPerPage = 6;
 
-  // ✅ جلب الوظائف من API وترتيبها حسب ID تنازليًا (الأحدث أولاً)
   useEffect(() => {
-    axios.get(process.env.PUBLIC_URL + "/api.json")
-      .then((res) => {
-        // ترتيب الوظائف تنازليًا حسب id (الأحدث أولاً)
-        const sortedJobs = res.data.sort((a, b) => b.id - a.id);
+    fetch(process.env.PUBLIC_URL + "/data/api.json")
+      .then((response) => {
+        if (!response.ok) throw new Error("خطأ في تحميل البيانات");
+        return response.json();
+      })
+      .then((data) => {
+        const sortedJobs = data.sort((a, b) => b.id - a.id);
         setJobs(sortedJobs);
       })
-      .catch((err) => {
-        console.error("خطأ في جلب الوظائف:", err);
-      });
+      .catch((error) => console.error("خطأ في جلب الوظائف:", error));
   }, []);
 
-  // حساب حدود الوظائف التي ستعرض في الصفحة الحالية
   const indexOfLastJob = currentPage * jobsPerPage;
   const indexOfFirstJob = indexOfLastJob - jobsPerPage;
   const currentJobs = jobs.slice(indexOfFirstJob, indexOfLastJob);
 
   const totalPages = Math.ceil(jobs.length / jobsPerPage);
 
-  // تغيير الصفحة
   const goToPage = (pageNumber) => {
-    if (pageNumber >= 1 && pageNumber <= totalPages) {
-      setCurrentPage(pageNumber);
-    }
+    if (pageNumber >= 1 && pageNumber <= totalPages) setCurrentPage(pageNumber);
   };
 
   return (
@@ -87,9 +82,7 @@ const Home = () => {
                 <h3 className="text-xl font-bold text-blue-800 mb-2">{job.title}</h3>
                 <p className="text-gray-700">{job.company_name}</p>
                 <p className="text-gray-600">{job.location}</p>
-                <p className="text-green-700 font-medium mt-2">
-                  الراتب: {job.salary}
-                </p>
+                <p className="text-green-700 font-medium mt-2">الراتب: {job.salary}</p>
                 <span className="inline-block mt-3 bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
                   {job.job_type}
                 </span>
@@ -129,9 +122,7 @@ const Home = () => {
                 key={i + 1}
                 onClick={() => goToPage(i + 1)}
                 className={`px-4 py-2 rounded ${
-                  currentPage === i + 1
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-200 hover:bg-gray-300"
+                  currentPage === i + 1 ? "bg-blue-600 text-white" : "bg-gray-200 hover:bg-gray-300"
                 }`}
               >
                 {i + 1}

@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-import axios from "axios";
-
-
 const Jobs = () => {
   const [jobs, setJobs] = useState([]);
   const [search, setSearch] = useState("");
@@ -12,14 +9,15 @@ const Jobs = () => {
   const jobsPerPage = 5;
 
   useEffect(() => {
-    axios.get(process.env.PUBLIC_URL + "/api.json")
-      .then((res) => {
-        setJobs(res.data);
+    fetch(process.env.PUBLIC_URL + "/data/api.json")
+      .then((response) => {
+        if (!response.ok) throw new Error("خطأ في تحميل البيانات");
+        return response.json();
       })
-      .catch((err) => {
-        console.error("خطأ في الاتصال:", err);
-      });
+      .then((data) => setJobs(data))
+      .catch((error) => console.error("خطأ في الاتصال:", error));
   }, []);
+
   const filteredJobs = jobs.filter((job) => {
     const matchTitle = job.title.toLowerCase().includes(search.toLowerCase());
     const matchLocation = filterLocation ? job.location === filterLocation : true;
@@ -33,9 +31,7 @@ const Jobs = () => {
   const currentJobs = filteredJobs.slice(indexOfFirstJob, indexOfLastJob);
 
   const goToPage = (pageNumber) => {
-    if (pageNumber >= 1 && pageNumber <= totalPages) {
-      setCurrentPage(pageNumber);
-    }
+    if (pageNumber >= 1 && pageNumber <= totalPages) setCurrentPage(pageNumber);
   };
 
   const uniqueLocations = [...new Set(jobs.map((job) => job.location))];
@@ -55,7 +51,7 @@ const Jobs = () => {
             value={search}
             onChange={(e) => {
               setSearch(e.target.value);
-              setCurrentPage(1); // reset page on search change
+              setCurrentPage(1);
             }}
             className="p-3 border border-gray-300 rounded-lg"
           />
@@ -115,28 +111,24 @@ const Jobs = () => {
                 <h3 className="text-xl font-bold text-blue-800 mb-2">{job.title}</h3>
                 <p className="text-gray-700">{job.company_name}</p>
                 <p className="text-gray-600">{job.location}</p>
-                <p className="text-green-700 font-medium mt-2">
-                  الراتب: {job.salary}
-                </p>
+                <p className="text-green-700 font-medium mt-2">الراتب: {job.salary}</p>
                 <span className="inline-block mt-3 bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
                   {job.job_type}
                 </span>
-                <button className="mt-4 block w-full bg-blue-700 hover:bg-blue-800 text-white text-center py-2 rounded-lg font-semibold">
-                  تفاصيل
-                </button>
               </div>
             ))
           ) : (
-            <p className="text-gray-600">لا توجد نتائج مطابقة.</p>
+            <p className="text-center text-gray-500">لا توجد وظائف مطابقة.</p>
           )}
         </div>
 
+        {/* Pagination */}
         {totalPages > 1 && (
-          <div className="flex justify-center mt-10 flex-wrap gap-2">
+          <div className="flex justify-center gap-2 mt-10 flex-wrap">
             <button
               onClick={() => goToPage(1)}
               disabled={currentPage === 1}
-              className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
+              className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
             >
               الأولى
             </button>
@@ -144,19 +136,17 @@ const Jobs = () => {
             <button
               onClick={() => goToPage(currentPage - 1)}
               disabled={currentPage === 1}
-              className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
+              className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
             >
               السابقة
             </button>
 
             {Array.from({ length: totalPages }, (_, i) => (
               <button
-                key={i}
+                key={i + 1}
                 onClick={() => goToPage(i + 1)}
-                className={`px-3 py-1 rounded ${
-                  currentPage === i + 1
-                    ? "bg-blue-600 text-white"
-                    : "bg-gray-200 hover:bg-gray-300"
+                className={`px-4 py-2 rounded ${
+                  currentPage === i + 1 ? "bg-blue-600 text-white" : "bg-gray-200 hover:bg-gray-300"
                 }`}
               >
                 {i + 1}
@@ -166,7 +156,7 @@ const Jobs = () => {
             <button
               onClick={() => goToPage(currentPage + 1)}
               disabled={currentPage === totalPages}
-              className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
+              className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
             >
               التالية
             </button>
@@ -174,7 +164,7 @@ const Jobs = () => {
             <button
               onClick={() => goToPage(totalPages)}
               disabled={currentPage === totalPages}
-              className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
+              className="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
             >
               الأخيرة
             </button>
