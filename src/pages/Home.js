@@ -7,14 +7,10 @@ const Home = () => {
 
   // ✅ جلب الوظائف من API وترتيبها حسب ID تنازليًا (الأحدث أولاً)
   useEffect(() => {
-    axios
-      .get("/api.json")
+    // استخدام مسار نسبي للوصول إلى api.json داخل public
+    axios.get(process.env.PUBLIC_URL + "/api.json")
       .then((res) => {
-        // ترتيب الوظائف حسب id تنازليًا ثم أخذ أول 5 فقط
-        const sortedJobs = res.data
-          .sort((a, b) => b.id - a.id)
-          .slice(0, 3);
-        setJobs(sortedJobs);
+        setJobs(res.data);
       })
       .catch((err) => {
         console.error("خطأ في جلب الوظائف:", err);

@@ -12,12 +12,14 @@ const Jobs = () => {
   const jobsPerPage = 5;
 
   useEffect(() => {
-    axios
-      .get("/api.json")
-      .then((res) => setJobs(res.data))
-      .catch((err) => console.error(err));
+    axios.get(process.env.PUBLIC_URL + "/api.json")
+      .then((res) => {
+        setJobs(res.data);
+      })
+      .catch((err) => {
+        console.error("خطأ في الاتصال:", err);
+      });
   }, []);
-
   const filteredJobs = jobs.filter((job) => {
     const matchTitle = job.title.toLowerCase().includes(search.toLowerCase());
     const matchLocation = filterLocation ? job.location === filterLocation : true;
