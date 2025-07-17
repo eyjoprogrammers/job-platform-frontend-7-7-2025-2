@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+
 import axios from "axios";
+
 
 const Jobs = () => {
   const [jobs, setJobs] = useState([]);
@@ -11,13 +13,9 @@ const Jobs = () => {
 
   useEffect(() => {
     axios
-      .get("https://www.jobs-platform-backend-11-7-2025.fwh.is/jobs")
-      .then((res) => {
-        setJobs(res.data);
-      })
-      .catch((err) => {
-        console.error("خطأ في الاتصال:", err);
-      });
+      .get("/api.json")
+      .then((res) => setJobs(res.data))
+      .catch((err) => console.error(err));
   }, []);
 
   const filteredJobs = jobs.filter((job) => {
@@ -53,13 +51,19 @@ const Jobs = () => {
             type="text"
             placeholder="ابحث باسم الوظيفة..."
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => {
+              setSearch(e.target.value);
+              setCurrentPage(1); // reset page on search change
+            }}
             className="p-3 border border-gray-300 rounded-lg"
           />
 
           <select
             value={filterLocation}
-            onChange={(e) => setFilterLocation(e.target.value)}
+            onChange={(e) => {
+              setFilterLocation(e.target.value);
+              setCurrentPage(1);
+            }}
             className="p-3 border border-gray-300 rounded-lg"
           >
             <option value="">كل المدن</option>
@@ -72,7 +76,10 @@ const Jobs = () => {
 
           <select
             value={filterType}
-            onChange={(e) => setFilterType(e.target.value)}
+            onChange={(e) => {
+              setFilterType(e.target.value);
+              setCurrentPage(1);
+            }}
             className="p-3 border border-gray-300 rounded-lg"
           >
             <option value="">كل الأنواع</option>
@@ -107,7 +114,7 @@ const Jobs = () => {
                 <p className="text-gray-700">{job.company_name}</p>
                 <p className="text-gray-600">{job.location}</p>
                 <p className="text-green-700 font-medium mt-2">
-                  الراتب: {job.salary}$
+                  الراتب: {job.salary}
                 </p>
                 <span className="inline-block mt-3 bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
                   {job.job_type}
@@ -122,12 +129,12 @@ const Jobs = () => {
           )}
         </div>
 
-        {/* ✅ Pagination */}
         {totalPages > 1 && (
           <div className="flex justify-center mt-10 flex-wrap gap-2">
             <button
               onClick={() => goToPage(1)}
-              className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300"
+              disabled={currentPage === 1}
+              className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
             >
               الأولى
             </button>
@@ -164,7 +171,8 @@ const Jobs = () => {
 
             <button
               onClick={() => goToPage(totalPages)}
-              className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300"
+              disabled={currentPage === totalPages}
+              className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
             >
               الأخيرة
             </button>
