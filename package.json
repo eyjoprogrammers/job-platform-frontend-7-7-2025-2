@@ -15,6 +15,7 @@
     "web-vitals": "^2.1.4"
   },
   "homepage": "https://eyjoprogrammers.github.io/job-platform-frontend-7-7-2025-2",
+ " PUBLIC_URL":"https://eyjoprogrammers.github.io/job-platform-frontend-7-7-2025-2",
 
   "scripts": {
     "start": "react-scripts start",
