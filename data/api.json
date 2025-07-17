@@ -1,0 +1,202 @@
+ [{
+    "id": 1,
+    "title": "وظيفة رقم 1",
+    "company_name": "شركة البرمجيات",
+    "location": "جدة",
+    "salary": "8212 جنيه",
+    "job_type": "دوام كامل",
+    "created_at": "2025-07-08T12:14:33.000000Z",
+    "updated_at": "2025-07-08T12:14:33.000000Z"
+    },
+    {
+    "id": 2,
+    "title": "وظيفة رقم 2",
+    "company_name": "شركة البرمجيات",
+    "location": "جدة",
+    "salary": "9501 جنيه",
+    "job_type": "عمل حر",
+    "created_at": "2025-07-08T12:14:33.000000Z",
+    "updated_at": "2025-07-08T12:14:33.000000Z"
+    },
+    {
+    "id": 3,
+    "title": "وظيفة رقم 3",
+    "company_name": "SmartCode",
+    "location": "بغداد",
+    "salary": "5785 جنيه",
+    "job_type": "عمل حر",
+    "created_at": "2025-07-08T12:14:33.000000Z",
+    "updated_at": "2025-07-08T12:14:33.000000Z"
+    },
+    {
+    "id": 4,
+    "title": "وظيفة رقم 4",
+    "company_name": "SmartCode",
+    "location": "بغداد",
+    "salary": "9032 جنيه",
+    "job_type": "عمل حر",
+    "created_at": "2025-07-08T12:14:33.000000Z",
+    "updated_at": "2025-07-08T12:14:33.000000Z"
+    },
+    {
+    "id": 5,
+    "title": "وظيفة رقم 5",
+    "company_name": "DevHouse",
+    "location": "بغداد",
+    "salary": "10517 جنيه",
+    "job_type": "عمل حر",
+    "created_at": "2025-07-08T12:14:33.000000Z",
+    "updated_at": "2025-07-08T12:14:33.000000Z"
+    },
+    {
+    "id": 6,
+    "title": "وظيفة رقم 6",
+    "company_name": "Future Tech",
+    "location": "دبي",
+    "salary": "10469 جنيه",
+    "job_type": "عمل حر",
+    "created_at": "2025-07-08T12:14:33.000000Z",
+    "updated_at": "2025-07-08T12:14:33.000000Z"
+    },
+    {
+    "id": 7,
+    "title": "وظيفة رقم 7",
+    "company_name": "SmartCode",
+    "location": "القاهرة",
+    "salary": "7964 جنيه",
+    "job_type": "دوام جزئي",
+    "created_at": "2025-07-08T12:14:33.000000Z",
+    "updated_at": "2025-07-08T12:14:33.000000Z"
+    },
+    {
+    "id": 8,
+    "title": "وظيفة رقم 8",
+    "company_name": "Future Tech",
+    "location": "الرياض",
+    "salary": "8896 جنيه",
+    "job_type": "دوام جزئي",
+    "created_at": "2025-07-08T12:14:33.000000Z",
+    "updated_at": "2025-07-08T12:14:33.000000Z"
+    },
+    {
+    "id": 9,
+    "title": "وظيفة رقم 9",
+    "company_name": "DevHouse",
+    "location": "الرياض",
+    "salary": "11142 جنيه",
+    "job_type": "دوام كامل",
+    "created_at": "2025-07-08T12:14:33.000000Z",
+    "updated_at": "2025-07-08T12:14:33.000000Z"
+    },
+    {
+    "id": 10,
+    "title": "وظيفة رقم 10",
+    "company_name": "Future Tech",
+    "location": "الرياض",
+    "salary": "9793 جنيه",
+    "job_type": "دوام كامل",
+    "created_at": "2025-07-08T12:14:34.000000Z",
+    "updated_at": "2025-07-08T12:14:34.000000Z"
+    },
+    {
+    "id": 11,
+    "title": "وظيفة رقم 11",
+    "company_name": "شركة البرمجيات",
+    "location": "جدة",
+    "salary": "9408 جنيه",
+    "job_type": "عمل حر",
+    "created_at": "2025-07-08T12:14:34.000000Z",
+    "updated_at": "2025-07-08T12:14:34.000000Z"
+    },
+    {
+    "id": 12,
+    "title": "وظيفة رقم 12",
+    "company_name": "Future Tech",
+    "location": "دبي",
+    "salary": "9238 جنيه",
+    "job_type": "دوام كامل",
+    "created_at": "2025-07-08T12:14:34.000000Z",
+    "updated_at": "2025-07-08T12:14:34.000000Z"
+    },
+    {
+    "id": 13,
+    "title": "وظيفة رقم 13",
+    "company_name": "DevHouse",
+    "location": "جدة",
+    "salary": "6241 جنيه",
+    "job_type": "دوام كامل",
+    "created_at": "2025-07-08T12:14:34.000000Z",
+    "updated_at": "2025-07-08T12:14:34.000000Z"
+    },
+    {
+    "id": 14,
+    "title": "وظيفة رقم 14",
+    "company_name": "SmartCode",
+    "location": "القاهرة",
+    "salary": "11150 جنيه",
+    "job_type": "دوام جزئي",
+    "created_at": "2025-07-08T12:14:34.000000Z",
+    "updated_at": "2025-07-08T12:14:34.000000Z"
+    },
+    {
+    "id": 15,
+    "title": "وظيفة رقم 15",
+    "company_name": "SmartCode",
+    "location": "دبي",
+    "salary": "5232 جنيه",
+    "job_type": "دوام كامل",
+    "created_at": "2025-07-08T12:14:34.000000Z",
+    "updated_at": "2025-07-08T12:14:34.000000Z"
+    },
+    {
+    "id": 16,
+    "title": "وظيفة رقم 16",
+    "company_name": "DevHouse",
+    "location": "القاهرة",
+    "salary": "7458 جنيه",
+    "job_type": "عمل حر",
+    "created_at": "2025-07-08T12:14:34.000000Z",
+    "updated_at": "2025-07-08T12:14:34.000000Z"
+    },
+    {
+    "id": 17,
+    "title": "وظيفة رقم 17",
+    "company_name": "SmartCode",
+    "location": "الرياض",
+    "salary": "6410 جنيه",
+    "job_type": "دوام كامل",
+    "created_at": "2025-07-08T12:14:34.000000Z",
+    "updated_at": "2025-07-08T12:14:34.000000Z"
+    },
+    {
+    "id": 18,
+    "title": "وظيفة رقم 18",
+    "company_name": "SmartCode",
+    "location": "القاهرة",
+    "salary": "5089 جنيه",
+    "job_type": "دوام كامل",
+    "created_at": "2025-07-08T12:14:34.000000Z",
+    "updated_at": "2025-07-08T12:14:34.000000Z"
+    },
+    {
+    "id": 19,
+    "title": "وظيفة رقم 19",
+    "company_name": "SmartCode",
+    "location": "دبي",
+    "salary": "5310 جنيه",
+    "job_type": "دوام جزئي",
+    "created_at": "2025-07-08T12:14:34.000000Z",
+    "updated_at": "2025-07-08T12:14:34.000000Z"
+    },
+    {
+    "id": 20,
+    "title": "وظيفة رقم 20",
+    "company_name": "DevHouse",
+    "location": "الرياض",
+    "salary": "11295 جنيه",
+    "job_type": "دوام كامل",
+    "created_at": "2025-07-08T12:14:34.000000Z",
+    "updated_at": "2025-07-08T12:14:34.000000Z"
+    }]
+    
+   
